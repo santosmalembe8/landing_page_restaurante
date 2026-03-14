@@ -91,6 +91,9 @@ body{
     padding: 5px 20px 5px 20px;
     cursor: pointer;
 }
+.cabecalho .nav_bar .contactar .menu{
+    display: none;
+}
 .cabecalho .nav_bar .contactar button a{
     color: var(--cor-branca);
 }
@@ -758,4 +761,35 @@ filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.4));
 .termino > .info2 a{
     color: #a19f9f;
     text-decoration: underline;
+}
+
+
+@media (max-width:880px){
+    .cabecalho .nav_bar{
+        position: relative;
+    }
+    .cabecalho .nav_bar .nav_list{
+        display: none;
+    }
+      .cabecalho .nav_bar .nav_list li a{
+        color: var(--cor-preta);
+      }
+     .cabecalho .nav_bar .nav_list.show{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        position: fixed;
+        right: 0;
+        top: 0%;
+       bottom: 0;
+        background-color: var(--cor-dourada);
+     }
+    .cabecalho .nav_bar .contactar button{
+        display: none;
+    }
+.cabecalho .nav_bar .contactar .menu{
+    display: flex;
+    border: none;
+    
+}
 }
