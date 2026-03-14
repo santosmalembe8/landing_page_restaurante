@@ -1,0 +1,761 @@
+@charset "UTF-8";
+:root{
+    --cor-preta:#313638;
+    --cor-dourada:#D4AF37;
+    --cor-branca:#f5f5f5;
+    --font-arial: Arial, Helvetica, sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+*{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: 'titulo';
+    src: url(/fonts/Montserrat_Alternates/MontserratAlternates-SemiBold.ttf);
+}
+body{
+   background-color: var(--cor-branca);
+   overflow-x: hidden;
+   scroll-snap-type: y mandatory;
+   overflow-y: scroll;
+}
+.cabecalho{
+    position:absolute;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    color: var(--cor-branca);
+    z-index: 10;
+}
+.cabecalho .nav_bar{ /*menu que contemos links*/
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+}
+.cabecalho .nav_bar .logo{ /*menu que contemos links*/
+    position: absolute;
+    top: -3px;
+    left: 0%;
+    width: 17%;
+}
+.cabecalho .nav_bar .logo img{
+    width: 100%;
+}
+.cabecalho .nav_bar ul{/*Controlador das li*/
+    display: flex;
+    padding: 10px;
+    gap: 20px;
+}
+.cabecalho .nav_bar ul li{
+    padding: 5px;
+    position: relative;
+}
+.cabecalho .nav_bar ul li > a{
+    color: var(--cor-branca);
+    font-family: var(--font-arial);
+    font-weight: bold
+}
+.cabecalho .nav_bar ul > li:hover{
+    transform: scale(1.1);
+}
+.cabecalho .nav_bar ul > li::after{/*Efeito da borda que passapor baixo*/
+    content: "";
+    position: absolute;
+    width: 0%;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--cor-branca);
+    transition: 0.5s ease-in-out;
+}
+.cabecalho .nav_bar ul li:hover::after{
+    width: 100%;
+}
+.cabecalho .nav_bar .contactar{ /*Div que controla o botão d menu*/
+    position: absolute;
+    right: 3%;
+}
+.cabecalho .nav_bar .contactar button{/*Botão contactar*/
+    background-color: transparent;
+    border: 2px solid var(--cor-branca);
+    border-radius: 15px;
+    padding: 5px 20px 5px 20px;
+    cursor: pointer;
+}
+.cabecalho .nav_bar .contactar button a{
+    color: var(--cor-branca);
+}
+
+.boas_vindas{/*Sessão de boas vindas do site*/
+    height:100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: white;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url(/img/fundo/comidas.jpg);
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.boas_vindas .info{
+    display: flex;
+    flex-direction: column;
+    margin: 1% auto;
+}
+.boas_vindas .info .titulo h1{/*Titulo com o slogen do site*/
+   text-align: center;
+   font-family: 'titulo', sans-serif;
+   font-weight: 900;
+   font-size: clamp(40px, 4vw, 45px);
+   padding: 10px;
+}
+.boas_vindas .info .titulo > span{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: #e1e0e0;
+    font-size: 17px;
+}
+.boas_vindas .btn_facil{
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 10px;
+}
+.boas_vindas .btn_facil button{/*Boões na area ede boas vindas*/
+    border-radius: 10px;
+    padding: 10px 30px 10px 30px;
+    cursor: pointer;
+}
+
+.boas_vindas .btn_facil .pedido{ /*Botrão de pedido*/
+        background-color: var(--cor-dourada);
+        font-family: var(--font-arial);
+       font-weight: 900;
+        border: none;
+}
+
+.boas_vindas .btn_facil .menu{ /*Botão menu na area de boas vindas*/
+    border: 1px solid var(--cor-branca);
+    background-color: transparent;
+    font-family: var(--font-arial);
+    font-weight: 900;
+}
+.boas_vindas .btn_facil .menu a{
+    color: var(--cor-branca);
+
+}
+/*Fim da sessão de boasa vindas*/
+
+/*INICIO DA SESSÃO MENU*/
+ #menu{
+   height:auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap: 20px;
+   margin-top: 40px;
+   border-bottom: 1px solid #ccc;
+   scroll-margin-top: 50px;
+   position: relative;
+   scroll-snap-align: start;
+}
+#menu .cabeca{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    flex-direction: column;
+}
+
+#menu .cabeca h2{ /*Titulo da sesão*/
+    padding: 10px;
+    font-family: var(--font-arial);
+}
+
+#menu .cabeca p{
+    text-align: center;
+    color: #676767;
+}
+.menu_nav_bar{
+    padding: 20px;
+}
+.menu_nav_bar nav ul{
+    display: flex;
+    padding: 1px;
+    gap: 50px;
+  
+}
+.menu_nav_bar nav ul li{
+      position: relative;
+      padding: 5px;
+}
+.menu_nav_bar nav ul > li::after{/*Efeito da borda que passapor baixo*/
+    content: "";
+    position: absolute;
+    width: 0%;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--cor-dourada);
+    transition: 0.5s ease-in-out;
+}
+.menu_nav_bar nav ul li:hover::after{
+    width: 100%;
+}
+.menu_nav_bar nav ul li > a{
+    color: var(--cor-preta);
+    font-family: var(--font-arial);
+    font-weight: bold;
+}
+
+/*Inico da area dos pratos de comida*/
+.pratos_container{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 5px;
+    margin-bottom: 5%;
+}
+.pratos_container .pratos{
+    width: 30%;
+    padding: 10px;
+    height: auto;
+    
+}
+.pratos_container .pratos::after{
+    content:"";
+    display:block;
+    width: 80px;
+    height: 2px;
+    background-color: #5b5a5a;
+}
+.pratos_container .pratos_img{
+    position: relative;
+}
+.pratos_container .pratos_img .preco{
+    position: absolute;
+    right: 0%;
+    bottom: 1%;
+    background-color: var(--cor-branca);
+    padding: 10px;
+ 
+}
+.pratos_container .pratos_img .preco > span{
+    color: var(--cor-dourada);
+    font-family: 'titulo';
+    font-weight:bold;
+}
+.pratos_container .pratos_img img{
+    width: 100%;
+    height: 200px;
+}
+.pratos_container .info h3{
+    margin:5% 0% 5% 0%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.pratos_container .info p{
+    margin:5% 0% 5% 0%;
+    color: #5b5a5a;
+}
+
+/*Inico da animação*/
+/* ESTADO INICIAL (antes de aparecer) */
+.pratos_container .pratos{
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+/* CARDS QUE VÊM DA ESQUERDA */
+.pratos_container .pratos:nth-child(1),
+.pratos_container .pratos:nth-child(3) {
+    transform: translateX(-60px);
+}
+
+/* CARDS QUE VÊM DA DIREITA */
+.pratos_container .pratos:nth-child(2),
+.pratos_container .pratos:nth-child(4) {
+    transform: translateX(60px);
+}
+
+/* QUANDO A ANIMAÇÃO É ATIVADA */
+.pratos_container .pratos.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.aleatorio img{
+position: absolute;
+width: 200px;
+filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.4));
+}
+.aleatorio .alfase{
+    left: 0;
+}
+.aleatorio .cebola{
+    top: -7%;
+    right:0%;
+}
+.aleatorio .tomate{
+    left: -3%;
+    bottom: 0;
+}
+
+
+/*Inicio da sessão de reservas*/
+ #reservas{
+   height: 500px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap: 20px;
+   padding: 5px;
+   justify-content: center;
+   justify-content: center;
+   justify-content: center;
+   margin-top:8%;
+   border-bottom: 1px solid #ccc;
+   position: relative;
+   scroll-margin-top: 150px;
+    scroll-snap-align: start;
+}
+
+#reservas .cabeca{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    flex-direction: column;
+    margin-top: -7%;
+}
+
+#reservas .cabeca h2{ /*Titulo da sesão*/
+    padding: 10px;
+    font-family: var(--font-arial);
+}
+
+#reservas .cabeca p{
+    text-align: center;
+    color: #676767;
+}
+
+#reservas .cadastro_reservas{/*Area das dives de cada imput*/
+    width: 60%;
+}
+
+#reservas .cadastro_reservas .cadastro1, .cadastro2{
+    display: flex;
+    margin-top: 4%;
+    gap: 20px;
+}
+#reservas .cadastro_reservas input{
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid #757474;
+    border-radius: 5px;
+}
+#reservas .cadastro_reservas .enviar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+#reservas .cadastro_reservas .enviar > button{
+    padding: 10px 50px 10px 50px;
+    background-color: var(--cor-dourada);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.placa img{
+    position: absolute;
+    width: 200px;
+    left: 25%;
+    top: -22%;
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.4));
+}
+/*INCIO DA SESSÃO DE SERVIÇOS*/
+
+#servicos{
+   justify-content: center;
+   height:500px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   justify-content: center;
+   justify-content: center;
+   margin-top: 15%;
+   border-bottom: 1px solid #ccc;
+   padding: 20px;
+   scroll-snap-align: start;
+   scroll-margin-top: 120px;
+}
+#servicos .servicos_container{
+    width: 80%;
+    gap: 40px;
+    display: flex;
+}
+#servicos .cabeca{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    flex-direction: column;
+    margin-bottom: 15px;
+    margin-top: -100px;
+}
+
+#servicos .cabeca h2{ /*Titulo da sesão*/
+    padding: 10px;
+    font-family: var(--font-arial);
+    white-space: nowrap;
+}
+
+#servicos .cabeca p{
+    text-align: center;
+    color: #676767;
+}
+#servicos .servicos{
+    width: 30%;  
+}
+#servicos .area_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 3px solid var(--cor-dourada);
+    width: 200px;
+    height: 200px;
+    margin: 5% auto;
+}
+#servicos .area_img img{
+    width: 120px;
+}
+#servicos .servicos .info{
+    text-align: center;
+    padding: 10px;
+   
+}
+#servicos .servicos .info h3{
+    padding: 10px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#servicos .servicos .info p{
+    color: #313638;
+}
+#servicos .servicos .info > p::after{
+    content:"";
+    display:flex;
+    width: 50px;
+    height: 2px;
+    margin-top: 20px;
+    margin-left: 40%;
+    background-color: #5b5a5a;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+/*Fim da sessão de serviços*/
+
+/*INCIO DA SESSÃO SOBRE*/
+#sobre{
+   height:1150px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin-top: 10%;
+   scroll-margin-top: 120px;
+   scroll-snap-align: start;
+}
+#sobre .cabeca{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    flex-direction: column;
+    margin-bottom: 25px;
+    margin-top: -10%;
+}
+
+#sobre .cabeca h2{ /*Titulo da sesão*/
+    padding: 10px;
+    font-family: var(--font-arial);
+    white-space: nowrap;
+}
+#sobre .info_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#sobre .info_container > .info {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+#sobre .info_container > .info p{
+    color: #313638;
+}
+#sobre .info .teste{
+    width: 100%;
+    padding: 5px;
+    margin-top: 1%;
+}
+.logo_casa{
+    width:100%;
+}
+.logo_casa > img{
+    height: 140px;
+    width: 100%;
+    
+}
+#sobre .info .teste button{
+    padding: 5px 20px 5px 20px;
+    margin-top: 5%;
+    background-color: transparent;
+    border: 3px solid #313638;
+    cursor: pointer;
+    margin-left: 5%;
+}
+#sobre .info_container .historia_container{/*Conntrolador dos card da história*/
+    display: flex;
+    gap: 20px;
+    width: 50%;
+    margin-left: 5%;
+}
+#sobre .info_container .historia_container > .historia1{ /*Card da história do restaurante*/
+    width: 60%;
+}
+#sobre .info_container .historia_container > .historia1 > .imagem{
+    width: 100%;
+}
+#sobre .info_container .historia_container > .historia1 > .imagem img{
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+    box-shadow: 1px 2px 10px rgba(0,0,0,0.1);
+}
+#sobre .info_container .historia_container > .historia1 > .info {/*Informação do card da historia*/
+    margin-bottom: 10%;
+}
+#sobre .info_container .historia_container > .historia1 > .info h3{
+    margin:5% 0% 5% 0%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#sobre .info_container .historia_container > .historia1 > .info > p{
+    color: #5b5a5a;
+    margin-left: -1%;
+}
+#sobre .info_container .historia_container > .historia1::after{
+    content:"";
+    display:block;
+    width: 80px;
+    height: 2px;
+    background-color: #5b5a5a;
+}
+
+
+.escura{/*Div com a imagem escurecida na area do sobre*/
+    height:50%;
+    width: 103%;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-image: url(/img/fundo/conzinha.jpeg);
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 10%;
+    position: relative;
+}
+.escuro_container{
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 100%;
+}
+.escuro_container::before{
+    content:"";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+.escuro_container .escura1 > h2{
+     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+     font-size: clamp(30px, 4vw, 35px);
+     color: white;
+}
+.escuro_container h2,p{
+    position: relative;
+    z-index: 2;
+    color: rgb(227, 226, 226);
+    margin: 5%;
+}
+
+.escuro_container .escura1{
+    margin: 20% auto;
+    width: 65%;
+}
+.escuro_container .escura1 .botoes_container{
+    margin: 5%;
+}
+.escuro_container .escura1 .botoes_container > button{
+    padding: 5px 20px 5px 20px;
+    width: 30%;
+    cursor: pointer;
+    border: 2px solid var(--cor-branca);
+    background-color: transparent;
+    color: var(--cor-branca);
+    position: relative;
+    z-index: 1;
+    margin: 1%;
+    border-radius: 10px;
+}
+.escuro_container .escura1 .botoes_container > button:hover{
+    border-color: var(--cor-dourada);
+    transition: 0.4s ease-in-out;
+    transform: scale(1.1);
+}
+/*Fim da area sobre*/
+#contactos{
+   height:auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin-top: 360px;
+   border-bottom: 1px solid #ccc;
+   scroll-snap-align: start;
+   scroll-margin-top: 200px;
+   position: relative;
+   padding: 0;
+}
+#contactos .cabeca{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    flex-direction: column;
+    margin-bottom: 25px;
+    margin-top: -25%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#contactos .contactos_container{
+    display: flex;
+    gap:110px;
+    margin-left: 1%;
+}
+#contactos .contacto1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.formulario_container {/*Controlador dos formulários*/
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    height: auto;
+}
+.formulario_container .formulario{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.formulario_container .formulario input,textarea{
+    margin-top: 5%;
+}
+.formulario_container > .enviar{
+    margin-top: 5%;
+    width: 50%;
+}
+.formulario_container > .enviar button{
+    padding: 10px 30px 10px 30px;
+    width: 100%;
+    border: none;
+    background-color: var(--cor-dourada);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.formulario_container > .enviar button:hover{
+    background-color: rgb(242, 206, 1);
+    transition: 0.4s ease-in-out;
+}
+.formulario_container .formulario input{
+    padding: 10px;
+}
+.formulario_container .formulario textarea{
+    height: 100px;
+}
+.redes{
+    width: 103%;
+    background-color:#d7d4d4;
+    margin-top: 30px;
+    padding: 30px;
+}
+.redes .redes_container{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.termino{
+    background-color: #252525;
+    width: 103%;
+    padding: 10px;
+    height: 120px;
+    position: relative;
+}
+
+.termino > .info1{
+    position: absolute;
+    top: 40%;
+    left: 8%;
+   font-family: 'titulo', sans-serif;
+    font-weight: 900;
+    color: #c4c3c3;
+}
+.termino > .info1 a{
+  color: #8f8d8d;
+  text-decoration: underline;
+}
+.termino > .info2{
+    position: absolute;
+    top: 40%;
+    right: 10%;
+    color: #a19f9f;
+    font-family: 'titulo', sans-serif;
+    font-weight: 900;
+}
+.termino > .info2 a{
+    color: #a19f9f;
+    text-decoration: underline;
+}
